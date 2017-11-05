@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Form, Button, Message } from 'semantic-ui-react';
 import Validator from 'validator';
-import PropTypes from 'prop-types';
 import InlineError from '../messages/InlineError';
 
 class LoginForm extends React.Component {
@@ -26,7 +26,9 @@ class LoginForm extends React.Component {
       this.setState({ loading: true });
       this.props
         .submit(this.state.data)
-        .catch(err => this.setState({ errors: err.response.data.errors, loading: false }));
+        .catch(err =>
+          this.setState({ errors: err.response.data.errors, loading: false })
+        );
     }
   };
 
