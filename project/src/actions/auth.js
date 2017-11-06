@@ -19,3 +19,10 @@ export const login = credentials => dispatch =>
     localStorage.removeItem('projectJWT');
     dispatch(userLoggedOut());
   };
+
+  export const confirm = token => dispatch =>
+    api.user.confirm(token).then(user => {
+      localStorage.projectJWT = user.token;
+      dispatch(userLoggedIn(user));
+    });
+  
