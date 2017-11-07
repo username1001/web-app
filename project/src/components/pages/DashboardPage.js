@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import ConfirmEmailMessage from "../messages/ConfirmEmailMessage";
 import { allBooksSelector } from "../../reducers/books";
+import AddBookCtA from "../ctas/AddBookCtA";
 
 const DashboardPage = ({ isConfirmed, books }) => (
   <div>
