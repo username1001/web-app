@@ -22,7 +22,21 @@ export function sendConfirmationEmail(user) {
     text: `
     Welcome to the project. Please, confirm your email.
     
-    ${user.generateConfirmationUrl()}    `
+    ${user.generateConfirmationUrl()}`
+  }
+  transport.sendMail(email);
+}
+
+export function sendResetPasswordEmail(user) {
+  const transport = setup();
+  const email = {
+    from, 
+    to: user.email,
+    subject: 'Reset password',
+    text: `
+    To reset password follow this link
+    
+    ${user.generateResetPasswordLink()} `
   }
   transport.sendMail(email);
 }
